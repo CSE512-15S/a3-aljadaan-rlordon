@@ -10,6 +10,10 @@ a3-aljadaan-rlordon-olsufj
 ## Weather Condition For USA in 2013
 In this project we wanted to see how different weather attributes changes among the states. There are a lot of weather attributes provided to us from the National Oceanic and Atmospheric Administration's (NOAA) National Centers for Environmental Information (NCEI). We limited our scope to Average Temperature, Average Wind Speed, and Total Precipitation. We have produced an interactive visualization that allow users to chooses the weather attribute they want to visualize and scroll over the day of the month.
 
+#Running Instruction
+
+Access our visualization at [this link](https://cse512-15s.github.io/a3-aljadaan-rlordon-olsufj/) or download this repository and run `python -m SimpleHTTPServer 9000` and access this from http://localhost:9000/.
+
 # Introduction
 For this assignment, our group decided to think of novel ways to visualize weather data. The reason why we chose this is because all of us have limited coding backgrounds and are all D3 novices. Our rationale was if we chose a data set with a small number of "moving parts" it would facilitate learning D3 more. We realize this visualization isn't the most novel or compelling, but we thought it would be a good first step towards learning interactive visualizations.
 
@@ -49,11 +53,15 @@ Jacob was responsible for the implementation of the interactive design. D3 was t
 He found some nice tutorials online on creating choropleth maps using D3, and he chose to use an existing package called geomap that included all of the topojson files for the paths of the outlines of the states, and includes color schemes taken from the color brewer project. The slider was implemented using a d3-slider package that was found on github, with some custom CSS and design added. Also, he included dots for the location of each airport, along with a custom mouse over tooltip that displays the respective airport name. 
 Our project uses red and green as two of the color schemes. The reason why we do not believe this is a problem as far as red/green color blindness goes is the two colors are never displayed on the map at the same time. Additionally, the colors indicate what variable we are looking at (temperature, wind or precipitation), but that information is redundantly displayed with a title, so we deemed it a non-issue.
 
+Below are two stages for the visualizations:
+
+Before:
+![The initial visual display] (http://i.imgur.com/PXvDX4R.png)
+
+After:
+![The initial visual display] (http://i.imgur.com/aSPhpNu.png)
+
 Jacob spent 25+ man hours spent implementing this project. Much of those hours were fighting through learning, debugging, and gaining a general understand of how D3 works, as he still in the beginner stages of his web development skills. 
-
-#Running Instruction
-
-Access our visualization at [this link](https://cse512-15s.github.io/a3-aljadaan-rlordon-olsufj/) or download this repository and run `python -m SimpleHTTPServer 9000` and access this from http://localhost:9000/.
 
 #Lessons
 If we were to start this project over from scratch we would not choose to use the geomap package. It is a nice starter package for creating a choropleth map that includes automatic legend drawing and coloring schemes, but limits customization of the features. A few known bugs exist in the interactive vis, because of this use of the geomap package. The first bug is that the package thinks that Minnesota is Nevada, and so the color encoding and tooltip all display Minnesota as Nevada. We know that it is a package issue and not because of error in our data, or our code because on the geomap.js website the example that they have has this bug as well. Another problem, and one that makes the interaction not as beautiful or useful as it should be, is that every time you change the day on the slider a new <svg> is created to display the resulting map so there is this annoying flashing effect. When you drag the slider this flashing takes away from the ability to perceive changes in the map. In the geomap package, you call the map to be drawn through a map.draw command, and digging into the geomap.js we discovered that every time the draw command is called it appends a new svg to the DOM. Clearly this package was not created to be redrawn in an interactive way like we are doing, and if we would have realized this earlier we would have been able to switch our efforts to a new strategy. We were unable to implement the two different maps for each year strategy that we had initially intended for, again because the geomap implementation did not allow for this. A final bug is that when you click on portion of the map to zoom, the airport dots do not zoom with them. All in all, the next step for us in our learning process will be to create something like this without the help of geomap (coding from scratch).
@@ -61,3 +69,4 @@ If we were to start this project over from scratch we would not choose to use th
 #Limitations
 One limitation of our visualization is that since geomap auto creates the color bins based on the input data’s max and min, color comparisons between days are not necessarily entirely accurate. For each day however, the color comparisons between states are still useful. There is much more in terms of displaying data that could be done to further the comparisons, such as including other types of charts to the side to accompany the choropleth map, but for the scope of our skill set we settled on just some basic interactions. 
  
+# Changes between Storyboard and the Final Implementation
