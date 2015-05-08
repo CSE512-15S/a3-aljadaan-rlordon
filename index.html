@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>A3</title>
+        <link href="d3-geomap/css/d3.geomap.css" rel="stylesheet">
+        <link href="d3-slider/d3.slider.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans"/>
+        <link rel="stylesheet" href="http://rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
+        <script type="text/javascript" src="d3/d3.js"></script>
+        <script src="d3-geomap/vendor/d3.geomap.dependencies.min.js"></script>
+        <script src="d3-geomap/js/d3.geomap.js"></script>
+        <script src="d3-slider/d3.slider.js"></script>
+        <script src="tipindex.js"></script>
+    </head>
+    
+    <style type="text/css">
+        
+    #button3 {
+        background: lightblue;
+        display: inline-block; 
+        margin: 0px 15px 0px 15px;
+        border: solid 2px black;
+        border-radius: 10px;
+        padding: 5px;
+    }
+       
+    #button2 {
+        background: mediumseagreen;
+        display: inline-block; 
+        margin: 0px 15px 0px 15px;
+        border: solid 2px black;
+        border-radius: 10px;
+        padding: 5px;
+    }
+        
+    #button1 {
+        background: lightcoral;
+        display: inline-block; 
+        margin: 0px 15px 0px 15px;
+        border: solid 2px black;
+        border-radius: 10px;
+        padding: 5px;
+    }        
+        
+    #container {
+        width= 800px;
+        margin-top: 20px;
+    }
+        
+    #centerwrapper {
+        margin: auto;
+        width: 530px;
+    }
+    
+    body {
+      font-family: Open Sans,Verdana,Arial,sans-serif;
+    }
+
+    .wrapper {
+      width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .wrapper > div {
+      margin: 15px 0px 25px 0px;
+    }
+        
+    #mainWrapper {
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+        
+    #intro {
+        margin: 0px 0px 20px 0px;   
+    }
+        
+    h4,   
+    h1 {
+        margin: 0px;
+    }
+        
+    #introLine h1, #introLine p {
+        display:inline;
+        vertical-align: baseline;
+        
+    }
+        
+    </style>
+    <body>
+        <div id="mainWrapper">
+        <div id="intro">
+            <div id="introLine">
+                <h1 style="font-family: Open Sans; font-size:60px; ">Weather in the USA</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;Ross Lordon, Jacob Olsufka, Ahmad Aljadaan</p>
+            </div>
+        <h4 style="color: gray">This is an interactive display for visualizing weather patterns in America. The weather data used is taken from the largest airport in each state, shown by the dots. The data spans the month of August, 2013. Interact below by choosing to visualize average temperature, average wind speed, or total precipitation. The slider allows the user to change the day of the month. The map itself is interactive, click a state to zoom in, or hover your mouse over a state to reveal details about the weather on that day.</h4>
+        </div>
+        <hr>  
+        <div id="container">
+            <div id="centerwrapper">
+                <div id="button1"><a onclick="temp();" id="run1">Avg Temperature</a></div>
+                <div id="button2"><a onclick="wind();" id="run2">Avg Wind Speed</a></div>        
+                <div id="button3"><a onclick="precip();" id="run3">Total Precipitation</a></div>
+            </div>
+        </div>
+        
+        <div class="wrapper">
+
+            <center><h2 style="margin:10px 0px 0px 0px">August <span id="slider4text">1</span>, 2013</h2></center>
+            <div id="slider4"></div>
+            <center><p style="color:#bbb">&lt;Drag or click the slider to change the day of the month&gt;</p></center>
+            </div>
+            <hr>
+            <div class="wrapper">
+            <center><span id="variableText" style="font-size:30px">Average Temperature (F)</span></center>                
+            <center><p style="color:#bbb; margin:0px;">&lt;Mouse over the map to see details for each state&gt;</p></center>
+        </div>
+        
+        <script type="text/javascript">
+            var col = 'Avg Temp';
+            var sliderValue = 1;
+            var aa = [2,2];
+            var cnt = [1];   
+            var letter = 'Average Temperature (F)';
+            
+            var div = d3.select("#mainWrapper");            
+            var svg = div.append("svg")
+                        .attr("id", "map13")
+                        .attr("height", 500)
+                        .attr("width", 960);            
+        
+            var temp = function() {
+                letter = 'Average Temperature (F)';
+                col = 'Avg Temp';
+                var localV = valueIs();
+                colorMap13(localV,letter);   
+                d3.select('#variableText').text(letterIs())
+                drawAirports();
+            }            
+            var wind = function() {
+                letter = 'Average Wind Speed (mph)';
+                col = 'Avg Speed';
+                var localV = valueIs();
+                colorMap13(localV,letter); 
+                d3.select('#variableText').text(letterIs())
+                drawAirports()
+            }            
+            var precip = function() {
+                letter = 'Total Precipitation (in.)';
+                col = 'Total Precip'; 
+                var localV = valueIs();
+                colorMap13(localV,letter);
+                d3.select('#variableText').text(letterIs())
+                drawAirports()
+            }
+                     
+            colorMapStart();
+            
+            var axis = d3.svg.axis().orient("bottom").ticks(31);
+            d3.select('#slider4').call(d3.slider().axis(axis).on("slide", function(evt, value) {
+                var mapLetter = letterIs();
+            d3.select('#slider4text').text(value);
+                colorMap13(value,mapLetter);
+                sliderValue = value;
+                valueIs();
+                drawAirports();
+            }))
+            
+            
+            function valueIs() {
+                console.log(sliderValue);
+                return sliderValue;
+            }
+            
+            function letterIs() {
+                console.log('letter is: ' + letter);
+                return letter;
+            }
+            
+            function colorMap13(sValue, z) {
+                var map; 
+                var day_ = sValue;
+                var colorScheme = z;
+                if (colorScheme === 'Average Temperature (F)') {
+                    map = d3.geomap.choropleth()
+                        .geofile('d3-geomap/topojson/countries/USA.json')
+                        .colors(colorbrewer.Reds[5])
+                        .projection(d3.geo.albersUsa)
+                        .column(col)
+                        .unitId('FIPS')
+                        .scale(1000)
+                        .legend(true);   
+                } else if (colorScheme === 'Average Wind Speed (mph)') {
+                    map = d3.geomap.choropleth()
+                    .geofile('d3-geomap/topojson/countries/USA.json')
+                    .colors(colorbrewer.Greens[5])
+                    .projection(d3.geo.albersUsa)
+                    .column(col)
+                    .unitId('FIPS')
+                    .scale(1000)
+                    .legend(true); 
+                } else if (colorScheme === 'Total Precipitation (in.)') {
+                    map = d3.geomap.choropleth()
+                    .geofile('d3-geomap/topojson/countries/USA.json')
+                    .colors(colorbrewer.Blues[3])
+                    .projection(d3.geo.albersUsa)
+                    .column(col)
+                    .unitId('FIPS')
+                    .scale(1000)
+                    .legend(true);                     
+                }
+                
+                d3.csv('weatherData2013sm.csv', function(error, data) {                         var newD = [];    
+                var dataArray =[];
+                for(var i=1; i<32; i++) {
+                    var newD = [];  
+                    for(var prop in data) {
+                        if (data[prop].Day === i.toString()) {
+                            newD.push(data[prop]);
+                        }
+                    }
+                    dataArray[i] = newD;
+                };  
+                
+                d3.select("#map13")
+                    .datum(dataArray[day_])
+                    .call(map.draw,map)
+                    
+                });
+            }  
+            
+            function colorMapStart() {
+                var map; 
+                map = d3.geomap.choropleth()
+                        .geofile('d3-geomap/topojson/countries/USA.json')
+                        .colors(colorbrewer.Reds[5])
+                        .projection(d3.geo.albersUsa)
+                        .column(col)
+                        .unitId('FIPS')
+                        .scale(1000)
+                        .legend(true);                
+                d3.csv('weatherData2013sm.csv', function(error, data) {                         var newD = [];    
+                var dataArray =[];
+                for(var i=1; i<32; i++) {
+                    var newD = [];  
+                    for(var prop in data) {
+                        if (data[prop].Day === i.toString()) {
+                            newD.push(data[prop]);
+                        }
+                    }
+                    dataArray[i] = newD;
+                };  
+                
+                d3.select("#map13")
+                    .datum(dataArray[1])
+                    .call(map.draw, map);                    
+                });
+                
+                drawAirports();
+            }
+            
+            function drawAirports() {
+                
+                var width = 960;
+                var height = 500;
+                var projection = d3.geo.albersUsa()  
+                    .translate([width / 2, height / 2])
+                    .scale(1000);
+                
+                var aptPos;
+                var position;
+                d3.csv("airports.csv", function(error, data) {
+                    data.forEach(function(d) {
+                     aptPos = [+d.lon, +d.lat];
+                     position = projection(aptPos);
+                        d.x = position[0];
+                        d.y = position[1];
+                        console.log(position[1]);
+                    });
+                    
+                    var tip = d3.tip()
+                      .attr('class', 'd3-tip')  
+                      .offset([-10, 0])
+                      .html(function(d) {
+                        return "<span style='color:#268bd2'>" + 
+                            d.Airport
+                      });
+                    svg.call(tip);
+                    
+                    var airport = svg.append("g")
+                    .attr("class", "airportGroup")
+                    .selectAll("g")
+                    .data(data)
+                    .enter().append("g")
+                    .attr("class", "airport")
+                    .append("circle")
+                    .attr("r", 5)
+                    .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
+                    .attr("fill", "black") 
+                    .style("opacity", 0.9)
+                    .on('mouseover', tip.show)
+                    .on('mouseout', tip.hide);
+
+                });                
+            }
+            
+        </script>
+        
+        </div>
+        <div id="mainWrapper" style="margin-top:25px">
+            <p style="font-size:12px">Data source: <a href="https://www.ncdc.noaa.gov/">National Oceanic and Atmospheric Administration's (NOAA) National Centers for Environmental Information (NCEI)</a>.</p>
+        </div>
+    </body>
+</html>
