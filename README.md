@@ -36,6 +36,11 @@ Moreover, as we went through the data and looking from the graph created above n
 
 ![The initial visual display] (http://i.imgur.com/54GNhvy.jpg)
 
+Some prelimiary work have been done with R where we tried to explore more stuff with the possibility to build interactive maps with ggplot and Shiny packages. It was a learning experience but we ran into data problems since R require a different data cleaning than excel. A major error we ran into when using ggplot is "Discrete Value supplied to continuos scale". Although, we where able to plot a static map using ggplot, (see below) we couldn't implement Shiny library to create an interactive map. 
+![The initial visual display] (http://i.imgur.com/OpR7F61.png)
+
+Overall, Ahmad spent a total of 18 hours, most where in getting ggplot and Shiny to work. In addition, he tried to build another d3 interactive visualization where he failed to produce the map due to some problem in his code (The legend was there though!).
+
 # Final Visualization
 Jacob was responsible for the implementation of the interactive design. D3 was the tool of choice, one of the main reasons why he took this class was to begin to learn D3 so this assignment gave us great hands on experience learning it, and that was the main takeaway from A3 that he most excited about. He had been creating choropleth maps from scratch using processing, so he was very interested in how to make these same types of visualizations using D3.
 He found some nice tutorials online on creating choropleth maps using D3, and he chose to use an existing package called geomap that included all of the topojson files for the paths of the outlines of the states, and includes color schemes taken from the color brewer project. The slider was implemented using a d3-slider package that was found on github, with some custom CSS and design added. Also, he included dots for the location of each airport, along with a custom mouse over tooltip that displays the respective airport name. 
