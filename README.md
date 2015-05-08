@@ -7,7 +7,7 @@ a3-aljadaan-rlordon-olsufj
 2. Ross Lordon rlordon@uw.edu
 3. Jacob Olsufka olsufj@uw.edu
 
-## Weather Condition For USA in 2013
+## Weather Conditions in the USA for August, 2013
 In this project we wanted to see how different weather attributes changes among the states. There are a lot of weather attributes provided to us from the National Oceanic and Atmospheric Administration's (NOAA) National Centers for Environmental Information (NCEI). We limited our scope to Average Temperature, Average Wind Speed, and Total Precipitation. We have produced an interactive visualization that allow users to chooses the weather attribute they want to visualize and scroll over the day of the month.
 
 ##Running Instruction
