@@ -145,7 +145,7 @@
                 var localV = valueIs();
                 colorMap13(localV,letter); 
                 d3.select('#variableText').text(letterIs())
-                drawAirports()
+                drawAirports();
             }            
             var precip = function() {
                 letter = 'Total Precipitation (in.)';
@@ -153,14 +153,14 @@
                 var localV = valueIs();
                 colorMap13(localV,letter);
                 d3.select('#variableText').text(letterIs())
-                drawAirports()
+                drawAirports();
             }
                      
             colorMapStart();
             
             var axis = d3.svg.axis().orient("bottom").ticks(31);
             d3.select('#slider4').call(d3.slider().axis(axis).on("slide", function(evt, value) {
-                var mapLetter = letterIs();
+            var mapLetter = letterIs();
             d3.select('#slider4text').text(value);
                 colorMap13(value,mapLetter);
                 sliderValue = value;
@@ -229,6 +229,7 @@
                     .call(map.draw,map)
                     
                 });
+                drawAirports();
             }  
             
             function colorMapStart() {
