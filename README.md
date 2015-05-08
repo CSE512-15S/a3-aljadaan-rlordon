@@ -26,9 +26,11 @@ In order to get the data into a usable format, each weather station had to be qu
 
 # Data Exploration
 Ahmad was working on exploring the data using different tools such as (Tableau and ggplot). We wanted to start with a simple question to know the data set. A simple question will allow us to detect if there is some data missing or not defined properly. For example, in R we had to change some variables into numeric. Also, the data file assigned T as a variable in the Total Precipitation column which is somewhere between 0.01 and 0.02 inches of rain. In our first data exploration in Tableau we noticed a missing data for the State of Kansas. Sometime with large data set, where we have daily data points for each state for the whole year, it can be cumbersome to detect missing data manually. (see below)
+
 ![The initial visual display](http://i.imgur.com/4XGgBM0.png?1)
 
 As we fixed the data our vehicle moved on to its exploration journey. Tableau is a great tool for data exploration, with it we where able to ask questions such "Hottest State in August?" and "States with highest total of precipitation?". We started with the use of mapping function in Tableau. We were able to comapre data set from both 2013 and 2014.
+
 ![The initial visual display] (http://i.imgur.com/EUqt3KT.jpg?1)
 ![The initial visual display] (http://i.imgur.com/2SeFTbv.jpg)
 
