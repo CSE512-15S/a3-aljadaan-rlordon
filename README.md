@@ -28,7 +28,7 @@ In order to get the data into a usable format, each weather station had to be qu
 Ahmad was working on exploring the data using different tools such as (Tableau and ggplot). We wanted to start with a simple question to know the data set. A simple question will allow us to detect if there is some data missing or not defined properly. For example, in R we had to change some variables into numeric. Also, the data file assigned T as a variable in the Total Precipitation column which is somewhere between 0.01 and 0.02 inches of rain. In our first data exploration in Tableau we noticed a missing data for the State of Kansas. Sometime with large data set, where we have daily data points for each state for the whole year, it can be cumbersome to detect missing data manually. (see below)
 ![The initial visual display](http://i.imgur.com/4XGgBM0.png?1)
 
-As we fixed the data our vehicle moved on to its exploration journey. Tableau was a great tool for data exploration, with it we where able to ask questions such "Hottest State in August?" and "States with highest total of precipitation?". We started with the use of mapping function in Tableau. We were able to comapre data set from both 2013 and 2014.
+As we fixed the data our vehicle moved on to its exploration journey. Tableau is a great tool for data exploration, with it we where able to ask questions such "Hottest State in August?" and "States with highest total of precipitation?". We started with the use of mapping function in Tableau. We were able to comapre data set from both 2013 and 2014.
 ![The initial visual display] (http://i.imgur.com/EUqt3KT.jpg?1)
 ![The initial visual display] (http://i.imgur.com/2SeFTbv.jpg)
 
@@ -36,10 +36,10 @@ Moreover, as we went through the data and looking from the graph created above n
 
 ![The initial visual display] (http://i.imgur.com/54GNhvy.jpg)
 
-Some prelimiary work have been done with R where we tried to explore more stuff with the possibility to build interactive maps with ggplot and Shiny packages. It was a learning experience but we ran into data problems since R require a different data cleaning than excel. A major error we ran into when using ggplot is "Discrete Value supplied to continuos scale". Although, we where able to plot a static map using ggplot, (see below) we couldn't implement Shiny library to create an interactive map. 
+Some prelimiary work have been done with R where we tried to explore more stuff with the possibility to build interactive maps with ggplot and Shiny packages. It was a learning experience but we ran into data problems since R require a different data cleaning than excel. A major error we ran into when using ggplot is "Discrete Value supplied to continuos scale". Although, we where able to plot a static map using ggplot (see below), we couldn't implement Shiny library to create an interactive map. 
 ![The initial visual display] (http://i.imgur.com/OpR7F61.png)
 
-Overall, Ahmad spent a total of 18 hours, most where in getting ggplot and Shiny to work. In addition, he tried to build another d3 interactive visualization where he failed to produce the map due to some problem in his code (The legend was there though!).
+Overall, Ahmad spent a total of 18 hours, most where in getting ggplot and Shiny to work. In addition, he tried to build another d3 interactive visualization where he failed to produce the map due to some problems in his code (The legend was working though!).
 
 # Final Visualization
 Jacob was responsible for the implementation of the interactive design. D3 was the tool of choice, one of the main reasons why he took this class was to begin to learn D3 so this assignment gave us great hands on experience learning it, and that was the main takeaway from A3 that he most excited about. He had been creating choropleth maps from scratch using processing, so he was very interested in how to make these same types of visualizations using D3.
