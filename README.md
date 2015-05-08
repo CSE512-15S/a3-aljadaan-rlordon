@@ -53,7 +53,7 @@ Jacob was responsible for the implementation of the interactive design. D3 was t
 He found some nice tutorials online on creating choropleth maps using D3, and he chose to use an existing package called geomap that included all of the topojson files for the paths of the outlines of the states, and includes color schemes taken from the color brewer project. The slider was implemented using a d3-slider package that was found on github, with some custom CSS and design added. Also, he included dots for the location of each airport, along with a custom mouse over tooltip that displays the respective airport name. 
 Our project uses red and green as two of the color schemes. The reason why we do not believe this is a problem as far as red/green color blindness goes is the two colors are never displayed on the map at the same time. Additionally, the colors indicate what variable we are looking at (temperature, wind or precipitation), but that information is redundantly displayed with a title, so we deemed it a non-issue.
 
-Below are two stages for the visualizations:
+Below are two stages for the visualization:
 
 Before:
 ![The initial visual display] (http://i.imgur.com/PXvDX4R.png)
