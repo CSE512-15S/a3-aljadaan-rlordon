@@ -29,9 +29,8 @@ Ahmad was working on exploring the data using different tools such as (Tableau a
 ![The initial visual display](http://i.imgur.com/4XGgBM0.png?1)
 
 As we fixed the data our vehicle moved on to its exploration journey. Tableau was a great tool for data exploration, with it we where able to ask questions such "Hottest State in August?" and "States with highest total of precipitation?". We started with the use of mapping function in Tableau. We were able to comapre data set from both 2013 and 2014.
-http://i.imgur.com/EUqt3KT.jpg?1
-http://i.imgur.com/2SeFTbv.jpg
-
+![The initial visual display] http://i.imgur.com/EUqt3KT.jpg?1
+![The initial visual display] http://i.imgur.com/2SeFTbv.jpg
 
 
 # Final Visualization
