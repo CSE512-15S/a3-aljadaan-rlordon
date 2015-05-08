@@ -8,7 +8,7 @@ a3-aljadaan-rlordon-olsufj
 3. Jacob Olsufka olsufj@uw.edu
 
 ## Weather Condition For USA in 2013
-In this project we wanted to see how different weather attributes changes among the states. There are a lot of weather attributes provided to us from the National Oceanic and Atmospheric Administration's (NOAA) National Centers for Environmental Information (NCEI). We limited our scope to Average Temperature, Average Wind Speed, and Total Precipation. We have produced an interactive visulization that allow users to chooses the weather attribute they want to visualize and the the specific day of the month. 
+In this project we wanted to see how different weather attributes changes among the states. There are a lot of weather attributes provided to us from the National Oceanic and Atmospheric Administration's (NOAA) National Centers for Environmental Information (NCEI). We limited our scope to Average Temperature, Average Wind Speed, and Total Precipitation. We have produced an interactive visualization that allow users to chooses the weather attribute they want to visualize and scroll over the day of the month.
 
 # Introduction
 For this assignment, our group decided to think of novel ways to visualize weather data. The reason why we chose this is because all of us have limited coding backgrounds and are all D3 novices. Our rationale was if we chose a data set with a small number of "moving parts" it would facilitate learning D3 more. We realize this visualization isn't the most novel or compelling, but we thought it would be a good first step towards learning interactive visualizations.
@@ -32,6 +32,9 @@ As we fixed the data our vehicle moved on to its exploration journey. Tableau wa
 ![The initial visual display] (http://i.imgur.com/EUqt3KT.jpg?1)
 ![The initial visual display] (http://i.imgur.com/2SeFTbv.jpg)
 
+Moreover, as we went through the data and looking from the graph created above new questions emerged. I wanted to know the spacious relationship of the total precipitation among states in 2013 and 2014. For that, we used packed bubbles as a visualization method. We can see the huge drop in Alaska precipitation from 21 inches in 2013 to 13 inches in 2014. Also, we can notice that most states are getting more rain in 2014 giving the increase size of the bubbles. We can notice that the Midwest states are getting more raining in 2014 compared 2013. 
+
+![The initial visual display] (http://i.imgur.com/54GNhvy.jpg)
 
 # Final Visualization
 Jacob was responsible for the implementation of the interactive design. D3 was the tool of choice, one of the main reasons why he took this class was to begin to learn D3 so this assignment gave us great hands on experience learning it, and that was the main takeaway from A3 that he most excited about. He had been creating choropleth maps from scratch using processing, so he was very interested in how to make these same types of visualizations using D3.
