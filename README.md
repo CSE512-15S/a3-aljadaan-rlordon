@@ -7,6 +7,7 @@ a3-aljadaan-rlordon-olsufj
 2. Ross Lordon rlordon@uw.edu
 3. Jacob Olsufka olsufj@uw.edu
 
+## Weather Condition For the USA in August 2013
 
 # Introduction
 For this assignment, our group decided to think of novel ways to visualize weather data. The reason why we chose this is because all of us have limited coding backgrounds and are all D3 novices. Our rationale was if we chose a data set with a small number of "moving parts" it would facilitate learning D3 more. We realize this visualization isn't the most novel or compelling, but we thought it would be a good first step towards learning interactive visualizations.
