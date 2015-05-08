@@ -39,6 +39,7 @@ Moreover, as we went through the data and looking from the graph created above n
 ![The initial visual display] (http://i.imgur.com/54GNhvy.jpg)
 
 Some prelimiary work have been done with R where we tried to explore more stuff with the possibility to build interactive maps with ggplot and Shiny packages. It was a learning experience but we ran into data problems since R require a different data cleaning than excel. A major error we ran into when using ggplot is "Discrete Value supplied to continuos scale". Although, we where able to plot a static map using ggplot (see below), we couldn't implement Shiny library to create an interactive map. 
+
 ![The initial visual display] (http://i.imgur.com/OpR7F61.png)
 
 Overall, Ahmad spent a total of 18 hours, most where in getting ggplot and Shiny to work. In addition, he tried to build another d3 interactive visualization where he failed to produce the map due to some problems in his code (The legend was working though!).
@@ -52,7 +53,7 @@ Jacob spent 25+ man hours spent implementing this project. Much of those hours w
 
 #Running Instruction
 
-Access our visualization at [this link](http://cse512-15s.github.io/a3-aljadaan-rlordon-olsufj/) or download this repository and run `python -m SimpleHTTPServer 9000` and access this from http://localhost:9000/.
+Access our visualization at [this link](https://cse512-15s.github.io/a3-aljadaan-rlordon-olsufj/) or download this repository and run `python -m SimpleHTTPServer 9000` and access this from http://localhost:9000/.
 
 #Lessons
 If we were to start this project over from scratch we would not choose to use the geomap package. It is a nice starter package for creating a choropleth map that includes automatic legend drawing and coloring schemes, but limits customization of the features. A few known bugs exist in the interactive vis, because of this use of the geomap package. The first bug is that the package thinks that Minnesota is Nevada, and so the color encoding and tooltip all display Minnesota as Nevada. We know that it is a package issue and not because of error in our data, or our code because on the geomap.js website the example that they have has this bug as well. Another problem, and one that makes the interaction not as beautiful or useful as it should be, is that every time you change the day on the slider a new <svg> is created to display the resulting map so there is this annoying flashing effect. When you drag the slider this flashing takes away from the ability to perceive changes in the map. In the geomap package, you call the map to be drawn through a map.draw command, and digging into the geomap.js we discovered that every time the draw command is called it appends a new svg to the DOM. Clearly this package was not created to be redrawn in an interactive way like we are doing, and if we would have realized this earlier we would have been able to switch our efforts to a new strategy. We were unable to implement the two different maps for each year strategy that we had initially intended for, again because the geomap implementation did not allow for this. A final bug is that when you click on portion of the map to zoom, the airport dots do not zoom with them. All in all, the next step for us in our learning process will be to create something like this without the help of geomap (coding from scratch).
